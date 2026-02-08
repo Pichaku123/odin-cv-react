@@ -1,19 +1,26 @@
 import { useState } from "react";
 import PracExp from "./PracExp";
 
-export default function PracExpSection(){
-    const [pracList, setPracList] = useState([]);  //index as key
+export default function PracExpSection({ cvData, setCvData }) {
     const pracClickHandler = () => {
-        setPracList(pracList => [...pracList, pracList.length]);
-    }
+        setCvData((prev) => ({
+            ...prev,
+            practical: [...prev.practical, {}],
+        }));
+    };
 
     return (
         <div className="prac-exp form-section">
             <h2>Experience Details</h2>
-            {pracList.map((id) => (
-                <div>
+            {cvData.practical.map((pracItem, id) => (
+                <div key={pracItem.id || id}>
                     <p>Experience No. {id + 1}</p>
-                    <PracExp key={id} />
+                    <PracExp
+                        key={pracItem.id || id}
+                        index={id}
+                        cvData={cvData}
+                        setCvData={setCvData}
+                    />
                 </div>
             ))}
             <button id="prac-exp-add" onClick={pracClickHandler}>

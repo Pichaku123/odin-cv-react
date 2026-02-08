@@ -3,6 +3,9 @@
   padding: 2rem;
 }
 
+section{
+    display: flex;
+}
 
 .cv-form{
     border: 2px solid black;
@@ -23,3 +26,5 @@
 #add{
     border: 2px solid black;
 }
+
+

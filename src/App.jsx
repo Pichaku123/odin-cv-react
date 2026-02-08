@@ -1,16 +1,21 @@
-import { useState } from "react";
-import GenInfo from "./components/Editor/GenInfo";
-import EduExp from "./components/Editor/EduExp";
-import PracExp from "./components/Editor/PracExp";
 import "./App.css";
 import CVForm from "./components/Editor/CVForm";
+import FormPreview from "./components/Preview/FormPreview";
+import { useState } from "react";
 
 function App() {
-    
+    const [cvData, setCvData] = useState({
+        generalInfo : {},
+        education : [{}],
+        practical : [{}]
+    });
+    console.log(cvData);
+
     return (
-        <>
-            <CVForm />
-        </>
+        <section>
+            <CVForm cvData={cvData} setCvData={setCvData} />
+            <FormPreview cvData={cvData} />
+        </section>
     );
 }
 

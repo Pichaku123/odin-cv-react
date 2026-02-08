@@ -1,36 +1,59 @@
-export default function EduExp() {
+export default function EduExp({ cvData, setCvData, index }) {
+    function handleEduChange(field, value) {
+        setCvData((prev) => ({
+            ...prev,
+            education: prev.education.map((entry, i) =>
+                //field is a string here
+                i === index ? { ...entry, [field]: value } : entry
+            ),
+        }));
+    }
+
+    const edu = cvData.education[index] || {};
     return (
         <>
             <div className="entry">
-                <label htmlFor="school">School/University</label>
+                <label htmlFor={`school-${index}`}>School/University</label>
                 <input
-                    type = "text"
-                    name = "school"
-                    id = "school"
+                    type="text"
+                    name="school"
+                    id={`school-${index}`}
+                    value={edu.school || ""}
+                    onChange={(e) => handleEduChange("school", e.target.value)}
                 />
             </div>
             <div className="entry">
-                <label htmlFor="degree">Degree</label>
+                <label htmlFor={`degree-${index}`}>Degree</label>
                 <input
-                    type = "text"
-                    name = "degree"
-                    id = "degree"
+                    type="text"
+                    name="degree"
+                    id={`degree-${index}`}
+                    value={edu.degree || ""}
+                    onChange={(e) => handleEduChange("degree", e.target.value)}
                 />
             </div>
             <div className="entry">
-                <label htmlFor="start-date-edu">Start Date</label>
+                <label htmlFor={`start-date-edu-${index}`}>Start Date</label>
                 <input
-                    type = "date"
-                    name = "start-date-edu"
-                    id = "start-date-edu"
+                    type="date"
+                    name="start-date-edu"
+                    id={`start-date-edu-${index}`}
+                    value={edu["start-date-edu"] || ""}
+                    onChange={(e) =>
+                        handleEduChange("start-date-edu", e.target.value)
+                    }
                 />
             </div>
             <div className="entry">
-                <label htmlFor="end-date-edu">End Date</label>
+                <label htmlFor={`end-date-edu-${index}`}>End Date</label>
                 <input
-                    type = "date"
-                    name = "end-date-edu"
-                    id = "end-date-edu"
+                    type="date"
+                    name="end-date-edu"
+                    id={`end-date-edu-${index}`}
+                    value={edu["end-date-edu"] || ""}
+                    onChange={(e) =>
+                        handleEduChange("end-date-edu", e.target.value)
+                    }
                 />
             </div>
         </>

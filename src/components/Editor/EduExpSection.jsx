@@ -1,19 +1,26 @@
 import EduExp from "./EduExp";
 import { useState } from "react";
 
-export default function EduExpSection(){
-    const [eduList, setEduList] = useState([0]);    //using index as id for now
+export default function EduExpSection({ cvData, setCvData }) {
     const eduClickHandler = () => {
-        setEduList(eduList => [...eduList, eduList.length]);    //updates length as well
-    }
+        setCvData((prev) => ({
+            ...prev,
+            education: [...prev.education, {}],
+        }));
+    };
 
     return (
         <div className="edu-exp form-section">
             <h2>Education Information</h2>
-            {eduList.map((id) => (
-                <div>
+            {cvData.education.map((eduItem, id) => (
+                <div key={eduItem.id || id}>
                     <p>Education no. {id + 1}</p>
-                    <EduExp key={id} />
+                    <EduExp
+                        key={eduItem.id || id}
+                        index={id}
+                        cvData={cvData}
+                        setCvData={setCvData}
+                    />
                 </div>
             ))}
             <button id="edu-exp-add" onClick={eduClickHandler}>
