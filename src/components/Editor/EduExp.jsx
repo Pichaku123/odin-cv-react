@@ -10,6 +10,7 @@ export default function EduExp({ cvData, setCvData, index }) {
     }
 
     const edu = cvData.education[index] || {};
+    //entries -> school, degree, start-date, end-date
     return (
         <>
             <div className="entry">
@@ -38,9 +39,9 @@ export default function EduExp({ cvData, setCvData, index }) {
                     type="date"
                     name="start-date-edu"
                     id={`start-date-edu-${index}`}
-                    value={edu["start-date-edu"] || ""}
+                    value={edu.startDateEdu || ""}
                     onChange={(e) =>
-                        handleEduChange("start-date-edu", e.target.value)
+                        handleEduChange("startDateEdu", e.target.value)
                     }
                 />
             </div>
@@ -50,9 +51,9 @@ export default function EduExp({ cvData, setCvData, index }) {
                     type="date"
                     name="end-date-edu"
                     id={`end-date-edu-${index}`}
-                    value={edu["end-date-edu"] || ""}
+                    value={edu.endDateEdu || ""}
                     onChange={(e) =>
-                        handleEduChange("end-date-edu", e.target.value)
+                        handleEduChange("endDateEdu", e.target.value)
                     }
                 />
             </div>

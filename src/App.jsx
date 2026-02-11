@@ -5,9 +5,11 @@ import { useState } from "react";
 
 function App() {
     const [cvData, setCvData] = useState({
-        generalInfo : {},
-        education : [{}],
-        practical : [{}]
+        generalInfo: {},
+        education: [{}],
+        practical: [],
+        projects: [], 
+        skillsCerts: [], 
     });
     console.log(cvData);
 

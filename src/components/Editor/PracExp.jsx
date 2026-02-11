@@ -17,9 +17,9 @@ export default function PracExp({ cvData, setCvData, index }) {
                     type="text"
                     name="prac-title"
                     id={`prac-title-${index}`}
-                    value={prac["prac-title"] || ""}
+                    value={prac.pracTitle || ""}
                     onChange={(e) =>
-                        handlePracChange("prac-title", e.target.value)
+                        handlePracChange("pracTitle", e.target.value)
                     }
                 />
             </div>
@@ -41,9 +41,9 @@ export default function PracExp({ cvData, setCvData, index }) {
                     type="date"
                     name="start-date-prac"
                     id={`start-date-prac-${index}`}
-                    value={prac["start-date-prac"] || ""}
+                    value={prac.startDatePrac || ""}
                     onChange={(e) =>
-                        handlePracChange("start-date-prac", e.target.value)
+                        handlePracChange("startDatePrac", e.target.value)
                     }
                 />
             </div>
@@ -53,9 +53,9 @@ export default function PracExp({ cvData, setCvData, index }) {
                     type="date"
                     name="end-date-prac"
                     id={`end-date-prac-${index}`}
-                    value={prac["end-date-prac"] || ""}
+                    value={prac.endDatePrac || ""}
                     onChange={(e) =>
-                        handlePracChange("end-date-prac", e.target.value)
+                        handlePracChange("endDatePrac", e.target.value)
                     }
                 />
             </div>
