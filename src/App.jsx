@@ -1,6 +1,8 @@
 import "./App.css";
 import CVForm from "./components/Editor/CVForm";
 import FormPreview from "./components/Preview/FormPreview";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { useState } from "react";
 
 function App() {
@@ -8,16 +10,19 @@ function App() {
         generalInfo: {},
         education: [{}],
         practical: [],
-        projects: [], 
-        skillsCerts: [], 
+        projects: [],
+        skillsCerts: [],
     });
-    console.log(cvData);
 
     return (
-        <section>
-            <CVForm cvData={cvData} setCvData={setCvData} />
-            <FormPreview cvData={cvData} />
-        </section>
+        <>
+            <Header />
+            <section>
+                <CVForm cvData={cvData} setCvData={setCvData} />
+                <FormPreview cvData={cvData} />
+            </section>
+            <Footer />
+        </>
     );
 }
 
